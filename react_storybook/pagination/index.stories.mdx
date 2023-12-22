@@ -1,0 +1,53 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Pagination} from '.'
+import {play} from './interaction'
+
+<Meta
+  title="Pagination"
+  component={Pagination}
+  parameters={{backgrounds: {default: 'white'}}}
+/>
+
+# Pagination
+
+`import {Pagination} from '@mfrm-fx/ui'`
+
+export const Template = args => <Pagination {...args} />
+
+Default:
+
+<Canvas>
+  <Story
+    name="default"
+    args={{
+      totalItems: 136,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    play={play}
+    name="interaction"
+    args={{
+      totalItems: 136,
+      initialNumber: 10,
+      itemsPerPage: 20,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Loading new items:
+
+<Canvas>
+  <Story
+    name="loading"
+    args={{
+      totalItems: 136,
+      isLoading: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

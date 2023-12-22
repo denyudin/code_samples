@@ -1,0 +1,30 @@
+import React from 'react'
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Spacer} from '.'
+import {play} from './interaction'
+
+<Meta title="Spacer" component={Spacer} />
+
+# Spacer
+
+`import {Spacer} from '@mfrm-fx/ui'`
+
+<Canvas>
+  <Story name="default">
+    <p>Desktop (8, 32, 56, 24)</p>
+    <p>Tablet (16, 40, 64, 16)</p>
+    <p>Mobile (24, 48, 64, 8)</p>
+    <div style={{backgroundColor: 'rgba(255, 0, 255, 0.1)'}}>
+      <Spacer desktop={1} tablet={2} mobile={3} />
+      <div style={{backgroundColor: '#fff', height: '10px'}} />
+      <Spacer desktop={4} tablet={5} mobile={6} />
+      <div style={{backgroundColor: '#fff', height: '10px'}} />
+      <Spacer desktop={7} tablet={8} mobile={8} />
+      <div style={{backgroundColor: '#fff', height: '10px'}} />
+      <Spacer mobile={1} />
+      <Spacer tablet={2} />
+      <Spacer desktop={3} />
+    </div>
+  </Story>
+  <Story name="Interaction" play={play}></Story>
+</Canvas>

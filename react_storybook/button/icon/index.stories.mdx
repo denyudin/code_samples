@@ -1,0 +1,45 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {IconButton} from '.'
+import {ContactIcon, ToolTipIcon} from '../../icon'
+
+<Meta
+  title="IconButton"
+  component={IconButton}
+  parameters={{backgrounds: {default: 'white'}}}
+/>
+
+# Icon button
+
+`import {IconButton, ArrowIcon} from '@mfrm-fx/ui'`
+
+`@NOTE: use the name of the Icon you want to import, if not ArrowIcon`
+
+export const Template = ({children, ...args}) => (
+  <IconButton {...args}>{children}</IconButton>
+)
+
+Default:
+
+<Canvas>
+  <Story
+    name="default"
+    args={{children: ToolTipIcon, label: 'button example'}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Disabled:
+
+<Canvas>
+  <Story
+    name="disabled"
+    args={{
+      children: ContactIcon,
+      label: 'disable button example',
+      disabled: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

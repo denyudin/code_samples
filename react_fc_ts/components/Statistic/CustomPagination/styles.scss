@@ -1,0 +1,25 @@
+@import 'styles/Colors.scss';
+
+.pagination-container{
+  li{
+    .MuiPaginationItem-page{
+      color: $qwertyc-blue-3;
+      min-width: 24px;
+      max-width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      outline: none;
+    }
+    &:first-child,
+    &:last-child{
+      .MuiPaginationItem-page{
+        color: $qwertyc-gray;
+      }
+    }
+    .Mui-selected,
+    .MuiPaginationItem-page:hover{
+      background: transparent;
+      border: 1px solid $qwertyc-blue-3;
+    }
+  }
+}

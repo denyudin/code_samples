@@ -1,0 +1,60 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Button} from '.'
+
+<Meta
+  title="Button"
+  component={Button}
+  parameters={{
+    // FIXME: Check with design on color contrast warning
+    // https://dequeuniversity.com/rules/axe/4.5/color-contrast
+    a11y: {config: {rules: [{id: 'color-contrast', reviewOnFail: true}]}},
+  }}
+  argTypes={{
+    disabled: {control: 'boolean'},
+    size: {
+      control: {type: 'select', options: ['small', 'large']},
+    },
+    variant: {
+      control: {type: 'select', options: ['primary', 'secondary', 'ghost']},
+    },
+  }}
+/>
+
+# Button
+
+`import {Button} from '@mfrm-fx/ui'`
+
+export const Template = args => <Button {...args}>Learn more</Button>
+
+<Canvas isColumn>
+  Primary
+  <Story name="Primary">{Template.bind({})}</Story>
+  Secondary
+  <Story
+    parameters={{backgrounds: {default: 'darkBlue'}}}
+    name="Secondary"
+    args={{
+      variant: 'secondary',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  Ghost
+  <Story
+    name="Ghost"
+    args={{
+      variant: 'ghost',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  Disabled
+  <Story
+    name="Disabled"
+    args={{
+      disabled: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

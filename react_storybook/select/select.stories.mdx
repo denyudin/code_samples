@@ -1,0 +1,77 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Select} from '.'
+import {play} from './interaction'
+
+<Meta
+  title="Select"
+  argTypes={{
+    label: {control: 'text'},
+    disabled: {control: 'boolean'},
+    error: {control: 'boolean'},
+    size: {
+      control: {type: 'select', options: ['small', 'medium', 'large']},
+    },
+  }}
+  parameters={{
+    // FIXME: Check with design on color contrast warning
+    // https://dequeuniversity.com/rules/axe/4.5/color-contrast
+    a11y: {config: {rules: [{id: 'color-contrast', reviewOnFail: true}]}},
+  }}
+/>
+
+# Select
+
+`import {Select} from '@mfrm-fx/ui`
+
+export const Template = args => (
+  <Select placeholder="Select option..." {...args}>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    <option value="option4">Option 4</option>
+    <option value="option5">Option 5</option>
+    <option value="option6">Option 6</option>
+    <option value="option7">Option 7</option>
+    <option value="option8">Option 8</option>
+    <option value="option9">Option 9</option>
+  </Select>
+)
+
+export const handleChange = value => {
+  alert(`Selected value is: ${value}`)
+}
+
+<Canvas isColumn>
+  Default
+  <Story name="Large Size (Default)" play={play}>
+    {Template.bind({})}
+  </Story>
+  Medium
+  <Story name="Medium Size" args={{size: 'medium'}}>
+    {Template.bind({})}
+  </Story>
+  Small
+  <Story name="Small Size" args={{size: 'small'}}>
+    {Template.bind({})}
+  </Story>
+  Disabled
+  <Story name="Disabled" args={{disabled: true}}>
+    {Template.bind({})}
+  </Story>
+  Error
+  <Story name="Error" args={{error: true}}>
+    {Template.bind({})}
+  </Story>
+  With custom label
+  <Story name="With Label" args={{label: 'Custom Label'}}>
+    {Template.bind({})}
+  </Story>
+  Pre-selected
+  <Story name="Pre-selected" args={{value: 'option8'}}>
+    {Template.bind({})}
+  </Story>
+  With onChange handler
+  <Story name="With onChange handler" args={{onChange: handleChange}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

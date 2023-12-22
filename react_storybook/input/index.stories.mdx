@@ -1,0 +1,68 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Input} from '.'
+
+<Meta
+  title="Input"
+  component={Input}
+  argTypes={{
+    disabled: {control: 'boolean'},
+    size: {
+      control: {type: 'select', options: ['small', 'medium', 'large']},
+    },
+  }}
+  parameters={{backgrounds: {default: 'white'}}}
+/>
+
+# Input
+
+`import {Input} from '@mfrm-fx/ui'`
+
+export const Template = ({children, ...args}) => (
+  <Input {...args}>{children}</Input>
+)
+
+Default Input:
+
+<Canvas>
+  <Story name="default" args={{children: 'Label', id: 1}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Input sizes:
+
+<Canvas>
+  <Story name="small" args={{children: 'Small', size: 'small', id: 2}}>
+    {Template.bind({})}
+  </Story>
+  <Story name="medium" args={{children: 'Medium', size: 'medium', id: 3}}>
+    {Template.bind({})}
+  </Story>
+  <Story name="large" args={{children: 'Large', size: 'large', id: 4}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Input disabled:
+
+<Canvas>
+  <Story name="disabled" args={{children: 'Disabled', disabled: true, id: 5}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Input error:
+
+<Canvas>
+  <Story
+    name="error"
+    args={{
+      children: 'Error',
+      value: 'Wrong value',
+      error: 'Some error message',
+      id: 6,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

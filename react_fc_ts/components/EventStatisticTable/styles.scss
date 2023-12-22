@@ -1,0 +1,64 @@
+@import 'styles/Colors.scss';
+
+.no-event-block{
+  .qwerty-animation{
+    width: 100% ;
+     #lottie-confused svg {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
+
+.statistic-table{
+  &--event{
+    .main-head{
+      &--desktop {
+        div {
+          width: 34%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:first-child{
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+    .role-table{
+      .MuiTableCell-root{
+        font-size: 16px;
+        width: 34%;
+        border-bottom: none;
+      }
+      .MuiTableBody-root{
+        .MuiTableRow-root {
+          border-bottom: 1px solid $qwertyc-gray-disabled;
+          &:first-child{
+            border-top: 1px solid $qwertyc-gray-disabled;
+          }
+          &:nth-child(odd){
+            background: rgba(255, 255, 255, 0.65);
+          }
+          .MuiTableCell-root{
+            border-left: 1px solid $qwertyc-gray-disabled;
+            &:first-child{
+              border-left: 1px solid transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+  &--comments {
+    position: relative;
+    height: 100%;
+    width: 0;
+    button{
+      margin-left: 25px;
+    }
+  }
+  &--cell-content {
+    height: 55px;
+  }
+}

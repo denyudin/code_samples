@@ -1,0 +1,37 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Checkbox} from '.'
+import {play} from './interaction'
+
+<Meta title="Checkbox" component={Checkbox} />
+
+# Checkbox
+
+`import {Checkbox} from '@mfrm-fx/ui'`
+
+<Canvas isColumn>
+  Default
+  <Story name="default">
+    <Checkbox>Label</Checkbox>
+  </Story>
+  Checked
+  <Story name="checked">
+    <Checkbox checked>Checked</Checkbox>
+  </Story>
+  Focused
+  <Story name="focus">
+    <Checkbox autoFocus>Focused by tab/autofocus</Checkbox>
+  </Story>
+  Disabled
+  <Story name="disabled">
+    <Checkbox disabled>Disabled</Checkbox>
+  </Story>
+  Disabled checked
+  <Story name="disabled checked">
+    <Checkbox disabled checked>
+      Disabled checked
+    </Checkbox>
+  </Story>
+  <Story name="Interaction" play={play}>
+    <Checkbox data-testId="checkbox">Interaction</Checkbox>
+  </Story>
+</Canvas>

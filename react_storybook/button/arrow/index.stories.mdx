@@ -1,0 +1,87 @@
+import {Canvas, Meta, Story} from '@storybook/addon-docs'
+import {Arrow} from '.'
+import {globalClass} from '../../theme.css'
+
+<Meta
+  title="Arrow"
+  component={Arrow}
+  parameters={{backgrounds: {default: 'white'}}}
+  argTypes={{
+    disabled: {control: 'boolean'},
+    variant: {
+      control: {type: 'select', options: ['carousel', 'direction']},
+    },
+    direction: {
+      control: {type: 'select', options: ['right', 'left', 'up', 'down']},
+    },
+  }}
+/>
+
+# Arrow
+
+`import {Arrow} from '@mfrm-fx/ui'`
+
+export const Template = args => (
+  <div className={globalClass}>
+    <Arrow {...args} />
+  </div>
+)
+
+Default:
+
+<Canvas>
+  <Story
+    name="carousel"
+    args={{label: 'Default carousel arrow button', variant: 'carousel'}}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story name="direction" args={{label: 'Default direction arrow button'}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Disabled:
+
+<Canvas>
+  <Story
+    name="disabled-carousel"
+    args={{
+      label: 'Disabled carousel arrow button',
+      variant: 'carousel',
+      disabled: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="disabled-direction"
+    args={{label: 'Disabled direction arrow button', disabled: true}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Dark:
+
+<Canvas>
+  <Story
+    name="dark"
+    args={{label: 'Dark arrow button', dark: true}}
+    parameters={{backgrounds: {default: 'darkBlue'}}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Dark disabled:
+
+<Canvas>
+  <Story
+    name="disabled-dark"
+    args={{label: 'Dark arrow button', dark: true, disabled: true}}
+    parameters={{backgrounds: {default: 'darkBlue'}}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
